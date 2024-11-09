@@ -16,9 +16,8 @@ dotenv.config();
 const app = express()
 
 const allowedOrigins = [
-    'https://tu-frontend-produccion.com',
-    'https://otro-dominio-frontend.com',
-    'http://localhost:3000' // Para pruebas locales, si es necesario
+    'http://localhost:3000', // Para pruebas locales, si es necesario
+    'http://127.0.0.1:5500'
 ];
 
 app.use(cors({
@@ -53,8 +52,10 @@ app.use('/auth', authRoutes)
 app.use('/api/uploads', uploadRoutes)
 
 
+const PORT = process.env.PORT || 3000;
+
 dbConnection()
 
-app.listen(3000,()=> {
-    console.log('Server is running on port 3000')
+app.listen(PORT,()=> {
+    console.log('Server is running on port ',PORT)
 })
