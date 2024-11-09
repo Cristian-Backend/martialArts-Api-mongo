@@ -1,0 +1,4 @@
+node_modules
+.env
+src/uploads/martialarts/**.*
+src/uploads/user/**.*
