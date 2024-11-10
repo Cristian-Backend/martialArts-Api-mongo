@@ -15,22 +15,26 @@ dotenv.config();
 
 const app = express()
 
+app.use(express.static('public'));
+
 const allowedOrigins = [
-    'http://localhost:3000', // Para pruebas locales, si es necesario
-    'http://127.0.0.1:5500'
-];
-
-app.use(cors({
+    'http://127.0.0.1:5500',  // Tu frontend local
+    'http://localhost:3000',   // Si tienes otro entorno de desarrollo
+    'https://martialarts-api-mongo.onrender.com/api/martials'  // API en producción
+  ];
+  
+  app.use(cors({
     origin: function (origin, callback) {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error('Origen no permitido por CORS'));
-        }
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Origen no permitido por CORS'));
+      }
     },
-    credentials: true // Permite cookies o encabezados de autenticación si los usas
-}));
-
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
+  }));
 
 
 
