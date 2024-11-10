@@ -20,7 +20,7 @@ app.use(express.static('public'));
 const allowedOrigins = [
     'http://127.0.0.1:5500',  // Tu frontend local
     'http://localhost:3000',   // Si tienes otro entorno de desarrollo
-    'https://martialarts-api-mongo.onrender.com/api/martials'  // API en producción
+    'https://martialarts-api-mongo.onrender.com/'  // API en producción
   ];
   
   app.use(cors({
