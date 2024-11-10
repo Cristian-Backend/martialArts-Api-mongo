@@ -20,7 +20,7 @@ app.use(express.static('public'));
 const allowedOrigins = [
     'http://127.0.0.1:5500',  // Tu frontend local
     'http://localhost:3000',   // Si tienes otro entorno de desarrollo
-    'https://martialarts-api-mongo.onrender.com/'  // API en producción
+    'artesmarcialesf.netlify.app'  
   ];
   
   app.use(cors({
@@ -31,9 +31,9 @@ const allowedOrigins = [
         callback(new Error('Origen no permitido por CORS'));
       }
     },
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    methods: ['GET'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true
+    credentials: false
   }));
 
 
